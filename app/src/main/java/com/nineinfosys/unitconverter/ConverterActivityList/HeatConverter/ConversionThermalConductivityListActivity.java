@@ -79,7 +79,7 @@ public class ConversionThermalConductivityListActivity extends AppCompatActivity
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#db290d")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Thermal Conductivity");
+        getSupportActionBar().setTitle("Conversion Report");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

@@ -85,7 +85,7 @@ public class ConversionHeatFluxDensityListActivity extends AppCompatActivity imp
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e5b526")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Heat Flux Density ");
+        getSupportActionBar().setTitle("Conversion Report");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

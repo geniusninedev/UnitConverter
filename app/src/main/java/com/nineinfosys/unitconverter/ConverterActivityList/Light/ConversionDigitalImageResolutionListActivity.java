@@ -77,7 +77,7 @@ public class ConversionDigitalImageResolutionListActivity extends AppCompatActiv
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#17bfd4")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Digital Image Resolution");
+        getSupportActionBar().setTitle("Conversion Report");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

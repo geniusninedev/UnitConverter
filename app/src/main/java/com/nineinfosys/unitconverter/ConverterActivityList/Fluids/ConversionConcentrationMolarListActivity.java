@@ -80,7 +80,7 @@ public class ConversionConcentrationMolarListActivity extends AppCompatActivity 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0bdbea")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Concentration Molar");
+        getSupportActionBar().setTitle("Conversion Report");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

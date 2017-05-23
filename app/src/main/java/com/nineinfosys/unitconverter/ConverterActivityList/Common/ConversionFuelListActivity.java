@@ -115,7 +115,7 @@ public class ConversionFuelListActivity extends AppCompatActivity implements Tex
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e65f21")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Fuel ");
+        getSupportActionBar().setTitle("Conversion Report");
 
 
 

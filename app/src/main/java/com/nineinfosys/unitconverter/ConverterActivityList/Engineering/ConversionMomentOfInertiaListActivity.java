@@ -80,7 +80,7 @@ public class ConversionMomentOfInertiaListActivity extends AppCompatActivity imp
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#81c784")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Moment Of Inertia");
+        getSupportActionBar().setTitle("Conversion Report");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

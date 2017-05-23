@@ -79,7 +79,7 @@ public class ConversionSurfaceTensionListActivity extends AppCompatActivity impl
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4e9cd6")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Surface Tension");
+        getSupportActionBar().setTitle("Conversion Report");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

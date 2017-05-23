@@ -80,7 +80,7 @@ public class ConversionLuminanceListActivity extends AppCompatActivity implement
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#6fd684")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Luminance");
+        getSupportActionBar().setTitle("Conversion Report");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

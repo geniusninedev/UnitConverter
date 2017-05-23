@@ -86,7 +86,7 @@ public class ElectricResistanceListActivity extends AppCompatActivity implements
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#757575")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Electric Resistance");
+        getSupportActionBar().setTitle("Conversion Report");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

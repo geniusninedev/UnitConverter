@@ -90,7 +90,7 @@ public class ConversionLenghtListActivity extends AppCompatActivity implements T
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#d3a32b")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Length");
+        getSupportActionBar().setTitle("Conversion Report");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

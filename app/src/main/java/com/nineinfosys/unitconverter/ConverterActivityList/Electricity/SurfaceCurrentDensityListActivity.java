@@ -82,7 +82,7 @@ public class SurfaceCurrentDensityListActivity extends AppCompatActivity impleme
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ff6d00")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Surface Current Density");
+        getSupportActionBar().setTitle("Conversion Report");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

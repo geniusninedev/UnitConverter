@@ -90,7 +90,7 @@ public class ElectricFieldStrengthListActivity extends AppCompatActivity impleme
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#59db59")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Electric Field Strength");
+        getSupportActionBar().setTitle("Conversion Report");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
