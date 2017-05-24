@@ -32,7 +32,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.nineinfosys.unitconverter.ConverterActivities.ActivitySetting;
+import com.nineinfosys.unitconverter.ConverterActivities.Engineering.VelocityAngularActivity;
 import com.nineinfosys.unitconverter.ConverterActivityList.Fluids.ConversionViscosityKinematicListActivity;
 import com.nineinfosys.unitconverter.Engines.Fluids.ViscosityKinematic;
 import com.nineinfosys.unitconverter.R;
@@ -82,6 +86,10 @@ public class ViscosityKinematicActivity extends AppCompatActivity implements Vie
 
         formatsetting();
 
+        MobileAds.initialize(ViscosityKinematicActivity.this, getString(R.string.ads_app_id));
+        AdView mAdView = (AdView) findViewById(R.id.adViewUnitConverter);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         //keyboard hidden first time
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);

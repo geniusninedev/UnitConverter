@@ -30,6 +30,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.nineinfosys.unitconverter.Adapters.RecyclerViewConversionListAdapter;
 import com.nineinfosys.unitconverter.ConverterActivities.ActivitySetting;
 import com.nineinfosys.unitconverter.Engines.Common.Fuel;
@@ -117,6 +120,10 @@ public class ConversionFuelListActivity extends AppCompatActivity implements Tex
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle("Fuel ");
 
+        MobileAds.initialize(ConversionFuelListActivity.this, getString(R.string.ads_app_id));
+        AdView mAdView = (AdView) findViewById(R.id.adViewUnitConverterList);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

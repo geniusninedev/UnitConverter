@@ -45,5 +45,8 @@
     <color name="colorskyBluedark">#17bfd4</color>
     <color name="colorromanblue">#109edd</color>
 
+    <color name="colorLike">#2c7ce6</color>
+    <color name="secondary_text">#212121</color>
+    <color name="colorText">#FFFFFF</color>
 
 </resources>

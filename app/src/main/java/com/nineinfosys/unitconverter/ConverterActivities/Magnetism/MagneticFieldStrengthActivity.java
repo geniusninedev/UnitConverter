@@ -32,7 +32,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.nineinfosys.unitconverter.ConverterActivities.ActivitySetting;
+import com.nineinfosys.unitconverter.ConverterActivities.Light.LuminousIntensityActivity;
 import com.nineinfosys.unitconverter.ConverterActivityList.Magnetism.ConversionMagneticFieldStrengthListActivity;
 import com.nineinfosys.unitconverter.Engines.Magnetism.MagneticFieldStrengthConverter;
 import com.nineinfosys.unitconverter.R;
@@ -80,6 +84,11 @@ public class MagneticFieldStrengthActivity extends AppCompatActivity implements 
 
 
         formatsetting();
+
+        MobileAds.initialize(MagneticFieldStrengthActivity.this, getString(R.string.ads_app_id));
+        AdView mAdView = (AdView) findViewById(R.id.adViewUnitConverter);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         //keyboard hidden first time
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);

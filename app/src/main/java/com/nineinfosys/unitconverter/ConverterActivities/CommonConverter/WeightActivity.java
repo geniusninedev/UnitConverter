@@ -30,6 +30,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.nineinfosys.unitconverter.ConverterActivities.ActivitySetting;
 import com.nineinfosys.unitconverter.ConverterActivityList.Common.ConversionWeightListActivity;
 import com.nineinfosys.unitconverter.Engines.Common.WeightConverter;
@@ -142,6 +145,10 @@ public class WeightActivity extends AppCompatActivity implements View.OnClickLis
 
         formatsetting();
 
+        MobileAds.initialize(WeightActivity.this, getString(R.string.ads_app_id));
+        AdView mAdView = (AdView) findViewById(R.id.adViewUnitConverter);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         //keyboard hidden first time
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
