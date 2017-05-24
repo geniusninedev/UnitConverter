@@ -92,7 +92,7 @@ public class ConversionFluxListActivity extends AppCompatActivity implements Tex
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#03a9f4")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Magnetic Flux");
+        getSupportActionBar().setTitle("Conversion Report");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

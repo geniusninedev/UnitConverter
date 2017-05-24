@@ -89,7 +89,7 @@ public class ConversionEnergyListActivity extends AppCompatActivity implements T
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#59db59")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Energy");
+        getSupportActionBar().setTitle("Conversion Report");
 
         MobileAds.initialize(ConversionEnergyListActivity.this, getString(R.string.ads_app_id));
         AdView mAdView = (AdView) findViewById(R.id.adViewUnitConverterList);

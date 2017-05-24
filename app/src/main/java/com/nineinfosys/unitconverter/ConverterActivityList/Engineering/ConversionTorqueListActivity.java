@@ -86,7 +86,7 @@ public class ConversionTorqueListActivity extends AppCompatActivity implements T
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#59db59")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Torque ");
+        getSupportActionBar().setTitle("Conversion Report");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

@@ -84,7 +84,7 @@ public class ConversionSpeedListActivity extends AppCompatActivity implements Te
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#48e2be")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Speed");
+        getSupportActionBar().setTitle("Conversion Report");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

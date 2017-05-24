@@ -84,7 +84,7 @@ public class ConversionMassFluxDensityListActivity extends AppCompatActivity imp
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#f4511e")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Mass Flux Density");
+        getSupportActionBar().setTitle("Conversion Report");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

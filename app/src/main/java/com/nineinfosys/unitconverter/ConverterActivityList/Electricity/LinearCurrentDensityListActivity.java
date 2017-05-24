@@ -89,7 +89,7 @@ public class LinearCurrentDensityListActivity extends AppCompatActivity implemen
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#5a84b7")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Linear Current Density");
+        getSupportActionBar().setTitle("Conversion Report");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

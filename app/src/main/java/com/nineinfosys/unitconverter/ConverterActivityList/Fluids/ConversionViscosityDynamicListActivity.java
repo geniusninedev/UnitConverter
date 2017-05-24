@@ -84,7 +84,7 @@ public class ConversionViscosityDynamicListActivity extends AppCompatActivity im
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#59db59")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Viscosity Dynamic ");
+        getSupportActionBar().setTitle("Conversion Report");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

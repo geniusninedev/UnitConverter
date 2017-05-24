@@ -89,7 +89,7 @@ public class WorkConverterListActivity extends AppCompatActivity implements Text
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#10b5ce")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Work");
+        getSupportActionBar().setTitle("Conversion Report");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

@@ -93,7 +93,7 @@ public class ConversionAngleListActivity extends AppCompatActivity implements Te
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#a05445")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Angle");
+        getSupportActionBar().setTitle("Conversion Report");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

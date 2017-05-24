@@ -87,7 +87,7 @@ public class MetrologyConverterListActivity extends AppCompatActivity implements
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#277aa3")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Metrology");
+        getSupportActionBar().setTitle("Conversion Report");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

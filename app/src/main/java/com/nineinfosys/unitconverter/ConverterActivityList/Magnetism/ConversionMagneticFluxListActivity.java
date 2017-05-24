@@ -91,7 +91,7 @@ public class ConversionMagneticFluxListActivity extends AppCompatActivity implem
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#757575")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Magnetic Flux Density ");
+        getSupportActionBar().setTitle("Conversion Report");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
