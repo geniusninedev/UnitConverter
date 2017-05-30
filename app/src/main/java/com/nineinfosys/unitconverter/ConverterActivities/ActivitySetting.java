@@ -55,7 +55,7 @@ public class ActivitySetting extends AppCompatActivity {
          sharedPreferences =this.getSharedPreferences(Settings.SHARED_PREF_NAME, Context.MODE_PRIVATE);
         //Fetching thepatient_mobile_Number value form sharedpreferences
         FormattedString = sharedPreferences.getString(Settings.Format_Selected_SHARED_PREF,"Thousands separator");
-        DecimalplaceString= sharedPreferences.getString(Settings.Decimal_Place_Selected_SHARED_PREF,"2");
+        DecimalplaceString= sharedPreferences.getString(Settings.Decimal_Place_Selected_SHARED_PREF,"4");
 
         seekbarDecimalPlaces.setProgress(Integer.parseInt(DecimalplaceString));
         textViewDecimalPlacesvalues.setText("Decimal Places: "+DecimalplaceString);

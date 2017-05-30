@@ -45,5 +45,14 @@
     <color name="colorskyBluedark">#17bfd4</color>
     <color name="colorromanblue">#109edd</color>
 
+    <color name="green">#4CAF50</color>
+    <color name="white">#FFF</color>
+    <color name="black">#000</color>
+    <color name="gray_Tabbed_Text_color">#b5b5b5</color>
+    <color name="gray_text_color">#7f7f7f</color>
+    <color name="off_white">#f6f6f6</color>
+
+    <color name="colortime">#6dcc02</color>
+
 
 </resources>

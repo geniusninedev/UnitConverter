@@ -228,7 +228,7 @@ public class ConversionLinearChargeListActivity extends AppCompatActivity implem
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.main_list, menu);
+
         return super.onCreateOptionsMenu(menu);
     }
 

@@ -1,17 +1,25 @@
 package com.nineinfosys.unitconverter.ConverterActivityList.Common;
 
+import android.Manifest;
+import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.print.PrintHelper;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -26,8 +34,13 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.Window;
 import android.view.WindowManager;
+import android.webkit.WebView;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,31 +61,34 @@ import java.util.List;
 
 public class ConversionEnergyListActivity extends AppCompatActivity implements TextWatcher {
 
+    private static RecyclerView rView;
     List<ItemList> list = new ArrayList<ItemList>();
-    private  String stringSpinnerFrom;
+    private String stringSpinnerFrom;
     private double doubleEdittextvalue;
     private EditText edittextConversionListvalue;
-    private TextView textconversionFrom,textViewConversionShortform;
-    View ChildView ;
+    private TextView textconversionFrom, textViewConversionShortform;
+    View ChildView;
     DecimalFormat formatter = null;
 
-    private static final int REQUEST_CODE = 100;
+    public static int REQUEST_PERMISSIONS = 1;
+    boolean boolean_permission;
     private File imageFile;
-    private Bitmap bitmap;
+    private Bitmap bitmap,bitmap1;
     private PrintHelper printhelper;
 
-    private RecyclerView rView;
+    // public RecyclerView rView;
     RecyclerViewConversionListAdapter rcAdapter;
-    List<ItemList> rowListItem,rowListItem1;
+    List<ItemList> rowListItem, rowListItem1;
     File imagePath;
+    LinearLayout ll_linear;
 
-    private String strJoule= null,strKilojoule= null,strKilowatthour= null,strWatthour= null,strCalorienutritional= null,strHorsepowermetrichour= null,strBtuIT= null,strBtuth= null,
-            strGigajoule= null,strMegajoule= null,strMillijoule= null,strMicrojoule= null,strNanojoule= null,strAttojoule= null,strMegaelectronvolt= null,strKiloelectronvolt= null,strElectronvolt= null,
-            strErg= null,strGigawatthour= null,strMegawatthour= null,strKilowattsecond= null,strWattsecond= null,strNewtonmeter= null,strHorsepowerhour= null,strKilocalorieIT= null,strKilocalorieth= null,
-            strCalorieIT= null,strCalorieth= null,strMegaBtuIT = null,strTonhourrefrigeration= null,strFueloilequivalentkiloliter= null,strFueloilequivalentbarrelUS= null,strGigaton= null,strMegaton= null,
-            strKiloton= null,strTonexplosives= null,strDynecentimeter= null,strGramforcemeter= null,strGramforcecentimeter= null,strKilogramforcecentimeter= null,strKilogramforcemeter= null,strKilopondmeter= null,
-            strPoundforcefoot= null,strPoundforceinch= null,strOunceforceinch= null,strFootpound= null,strInchpound= null,strInchounce= null,strPoundalfoot= null,strTherm= null,strThermEC= null,strThermUS= null,
-            strHartreeenergy= null,strRydbergconstant= null;
+    private String strJoule = null, strKilojoule = null, strKilowatthour = null, strWatthour = null, strCalorienutritional = null, strHorsepowermetrichour = null, strBtuIT = null, strBtuth = null,
+            strGigajoule = null, strMegajoule = null, strMillijoule = null, strMicrojoule = null, strNanojoule = null, strAttojoule = null, strMegaelectronvolt = null, strKiloelectronvolt = null, strElectronvolt = null,
+            strErg = null, strGigawatthour = null, strMegawatthour = null, strKilowattsecond = null, strWattsecond = null, strNewtonmeter = null, strHorsepowerhour = null, strKilocalorieIT = null, strKilocalorieth = null,
+            strCalorieIT = null, strCalorieth = null, strMegaBtuIT = null, strTonhourrefrigeration = null, strFueloilequivalentkiloliter = null, strFueloilequivalentbarrelUS = null, strGigaton = null, strMegaton = null,
+            strKiloton = null, strTonexplosives = null, strDynecentimeter = null, strGramforcemeter = null, strGramforcecentimeter = null, strKilogramforcecentimeter = null, strKilogramforcemeter = null, strKilopondmeter = null,
+            strPoundforcefoot = null, strPoundforceinch = null, strOunceforceinch = null, strFootpound = null, strInchpound = null, strInchounce = null, strPoundalfoot = null, strTherm = null, strThermEC = null, strThermUS = null,
+            strHartreeenergy = null, strRydbergconstant = null;
 
 
     @Override
@@ -107,24 +123,23 @@ public class ConversionEnergyListActivity extends AppCompatActivity implements T
         }
 
 
-
         //format of decimal pint
         formatsetting();
 
-       // ll = (ScrollView)findViewById(R.id.linearlayout);
-        edittextConversionListvalue=(EditText)findViewById(R.id.edittextConversionListvalue) ;
-        textconversionFrom=(TextView) findViewById(R.id.textViewConversionFrom) ;
-        textViewConversionShortform=(TextView) findViewById(R.id.textViewConversionShortform) ;
+        // ll = (ScrollView)findViewById(R.id.linearlayout);
+        edittextConversionListvalue = (EditText) findViewById(R.id.edittextConversionListvalue);
+        textconversionFrom = (TextView) findViewById(R.id.textViewConversionFrom);
+        textViewConversionShortform = (TextView) findViewById(R.id.textViewConversionShortform);
 
         //get the value from temperture activity
         stringSpinnerFrom = getIntent().getExtras().getString("stringSpinnerFrom");
-        doubleEdittextvalue= getIntent().getExtras().getDouble("doubleEdittextvalue");
+        doubleEdittextvalue = getIntent().getExtras().getDouble("doubleEdittextvalue");
         edittextConversionListvalue.setText(String.valueOf(doubleEdittextvalue));
 
         NamesAndShortform(stringSpinnerFrom);
 
         //   Toast.makeText(this,"string1 "+stringSpinnerFrom,Toast.LENGTH_LONG).show();
-        rowListItem = getAllunitValue(stringSpinnerFrom,doubleEdittextvalue);
+        rowListItem = getAllunitValue(stringSpinnerFrom, doubleEdittextvalue);
 
         //Initializing Views
         rView = (RecyclerView) findViewById(R.id.recyclerViewConverterList);
@@ -133,14 +148,33 @@ public class ConversionEnergyListActivity extends AppCompatActivity implements T
 
 
         //Initializing our superheroes list
-        rcAdapter = new RecyclerViewConversionListAdapter(this,rowListItem);
+        rcAdapter = new RecyclerViewConversionListAdapter(this, rowListItem);
         rView.setAdapter(rcAdapter);
 
         edittextConversionListvalue.addTextChangedListener(this);
-
+        if (shouldAskPermissions()) {
+            askPermissions();
+        }
 
 
     }
+
+    protected boolean shouldAskPermissions() {
+        return (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1);
+    }
+
+    @TargetApi(23)
+    protected void askPermissions() {
+        String[] permissions = {
+                "android.permission.READ_EXTERNAL_STORAGE",
+                "android.permission.WRITE_EXTERNAL_STORAGE"
+        };
+        int requestCode = 200;
+        requestPermissions(permissions, requestCode);
+    }
+
+
+
 
     private void NamesAndShortform(String stringSpinnerFrom) {
         switch (stringSpinnerFrom) {
@@ -172,11 +206,11 @@ public class ConversionEnergyListActivity extends AppCompatActivity implements T
                 textconversionFrom.setText("Btu(IT)");
                 textViewConversionShortform.setText("btu(IT),Btu");
                 break;
-            case  "Btu(th) - btu(th)":
+            case "Btu(th) - btu(th)":
                 textconversionFrom.setText("Btu(th)");
                 textViewConversionShortform.setText("btu(th)");
                 break;
-            case  "Giga joule - GJ":
+            case "Giga joule - GJ":
                 textconversionFrom.setText("Giga joule");
                 textViewConversionShortform.setText("GJ");
                 break;
@@ -188,15 +222,15 @@ public class ConversionEnergyListActivity extends AppCompatActivity implements T
                 textconversionFrom.setText("Milli joule");
                 textViewConversionShortform.setText("mJ");
                 break;
-            case  "Micro joule - μj":
+            case "Micro joule - μj":
                 textconversionFrom.setText("Micro joule");
                 textViewConversionShortform.setText("μj");
                 break;
-            case  "Nano joule - nJ":
+            case "Nano joule - nJ":
                 textconversionFrom.setText("Nano joule");
                 textViewConversionShortform.setText("nJ");
                 break;
-            case  "Atto joule - aJ":
+            case "Atto joule - aJ":
                 textconversionFrom.setText("Atto joule");
                 textViewConversionShortform.setText("aJ");
                 break;
@@ -212,7 +246,7 @@ public class ConversionEnergyListActivity extends AppCompatActivity implements T
                 textconversionFrom.setText("Electron-volt");
                 textViewConversionShortform.setText("eV");
                 break;
-            case  "Erg - erg":
+            case "Erg - erg":
                 textconversionFrom.setText("Erg");
                 textViewConversionShortform.setText("erg");
                 break;
@@ -220,7 +254,7 @@ public class ConversionEnergyListActivity extends AppCompatActivity implements T
                 textconversionFrom.setText("Giga watt-hour");
                 textViewConversionShortform.setText("GW*h");
                 break;
-            case  "Mega watt-hour - MW*h":
+            case "Mega watt-hour - MW*h":
                 textconversionFrom.setText("Mega watt-hour");
                 textViewConversionShortform.setText("MW*h");
                 break;
@@ -256,7 +290,7 @@ public class ConversionEnergyListActivity extends AppCompatActivity implements T
                 textconversionFrom.setText("Calorie(th)");
                 textViewConversionShortform.setText("cal(th)");
                 break;
-            case  "Mega Btu (IT) - MBtu(IT)":
+            case "Mega Btu (IT) - MBtu(IT)":
                 textconversionFrom.setText("Mega Btu (IT)");
                 textViewConversionShortform.setText("MBtu(IT)");
                 break;
@@ -328,7 +362,7 @@ public class ConversionEnergyListActivity extends AppCompatActivity implements T
                 textconversionFrom.setText("Foot-pound");
                 textViewConversionShortform.setText("ft*lbf");
                 break;
-            case  "Inch-pound - in*lbf":
+            case "Inch-pound - in*lbf":
                 textconversionFrom.setText("Inch-pound");
                 textViewConversionShortform.setText("in*lbf");
                 break;
@@ -348,11 +382,11 @@ public class ConversionEnergyListActivity extends AppCompatActivity implements T
                 textconversionFrom.setText("Therm(EC)");
                 textViewConversionShortform.setText("therm");
                 break;
-            case  "Therm(US) - therm":
+            case "Therm(US) - therm":
                 textconversionFrom.setText("Therm(US)");
                 textViewConversionShortform.setText("therm");
                 break;
-            case  "Hartree energy - He":
+            case "Hartree energy - He":
                 textconversionFrom.setText("Hartree energy");
                 textViewConversionShortform.setText("He");
                 break;
@@ -365,135 +399,133 @@ public class ConversionEnergyListActivity extends AppCompatActivity implements T
 
     private void formatsetting() {
         //fetching value from sharedpreference
-        SharedPreferences sharedPreferences =this.getSharedPreferences(Settings.SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = this.getSharedPreferences(Settings.SHARED_PREF_NAME, Context.MODE_PRIVATE);
         //Fetching thepatient_mobile_Number value form sharedpreferences
-        String  FormattedString = sharedPreferences.getString(Settings.Format_Selected_SHARED_PREF,"Thousands separator");
-        String DecimalplaceString= sharedPreferences.getString(Settings.Decimal_Place_Selected_SHARED_PREF,"2");
-        Settings settings=new Settings(FormattedString,DecimalplaceString);
-        formatter= settings.setting();
+        String FormattedString = sharedPreferences.getString(Settings.Format_Selected_SHARED_PREF, "Thousands separator");
+        String DecimalplaceString = sharedPreferences.getString(Settings.Decimal_Place_Selected_SHARED_PREF, "2");
+        Settings settings = new Settings(FormattedString, DecimalplaceString);
+        formatter = settings.setting();
     }
 
-    private List<ItemList> getAllunitValue(String strSpinnerFrom,double doubleEdittextvalue1) {
+    private List<ItemList> getAllunitValue(String strSpinnerFrom, double doubleEdittextvalue1) {
 
-        EnergyConverter c = new  EnergyConverter(strSpinnerFrom,doubleEdittextvalue1);
+        EnergyConverter c = new EnergyConverter(strSpinnerFrom, doubleEdittextvalue1);
         ArrayList<EnergyConverter.ConversionResults> results = c.calculateenergyConversion();
         int length = results.size();
         for (int i = 0; i < length; i++) {
             EnergyConverter.ConversionResults item = results.get(i);
 
 
+            strJoule = String.valueOf(formatter.format(item.getJoule()));
+            strKilojoule = String.valueOf(formatter.format(item.getKilojoule()));
+            strKilowatthour = String.valueOf(formatter.format(item.getKilowatthour()));
+            strWatthour = String.valueOf(formatter.format(item.getWatthour()));
+            strCalorienutritional = String.valueOf(formatter.format(item.getCalorie()));
+            strHorsepowermetrichour = String.valueOf(formatter.format(item.getHorsepower()));
+            strBtuIT = String.valueOf(formatter.format(item.getBtuIT()));
+            strBtuth = String.valueOf(formatter.format(item.getBtuth()));
+            strGigajoule = String.valueOf(formatter.format(item.getGigajoule()));
+            strMegajoule = String.valueOf(formatter.format(item.getMegajoule()));
+            strMillijoule = String.valueOf(formatter.format(item.getMillijoule()));
+            strMicrojoule = String.valueOf(formatter.format(item.getMicrojoule()));
+            strNanojoule = String.valueOf(formatter.format(item.getNanojoule()));
+            strAttojoule = String.valueOf(formatter.format(item.getAttojoule()));
+            strMegaelectronvolt = String.valueOf(formatter.format(item.getMegaelectronvolt()));
+            strKiloelectronvolt = String.valueOf(formatter.format(item.getKiloelectronvolt()));
+            strElectronvolt = String.valueOf(formatter.format(item.getElectronvolt()));
+            strErg = String.valueOf(formatter.format(item.getErg()));
+            strGigawatthour = String.valueOf(formatter.format(item.getGigawatthour()));
+            strMegawatthour = String.valueOf(formatter.format(item.getMegawatthour()));
+            strKilowattsecond = String.valueOf(formatter.format(item.getKilowattsecond()));
+            strWattsecond = String.valueOf(formatter.format(item.getWattsecond()));
+            strNewtonmeter = String.valueOf(formatter.format(item.getNewtonmeter()));
+            strHorsepowerhour = String.valueOf(formatter.format(item.getHorsepowerhour()));
+            strKilocalorieIT = String.valueOf(formatter.format(item.getKilocalorieIT()));
+            strKilocalorieth = String.valueOf(formatter.format(item.getKilocalorieth()));
+            strCalorieIT = String.valueOf(formatter.format(item.getCalorieit()));
+            strCalorieth = String.valueOf(formatter.format(item.getCalorieth()));
+            strMegaBtuIT = String.valueOf(formatter.format(item.getMegaBtuIT()));
+            strTonhourrefrigeration = String.valueOf(formatter.format(item.getTonhour()));
+            strFueloilequivalentkiloliter = String.valueOf(formatter.format(item.getFuelkl()));
+            strFueloilequivalentbarrelUS = String.valueOf(formatter.format(item.getFuelb()));
+            strGigaton = String.valueOf(formatter.format(item.getGigaton()));
+            strMegaton = String.valueOf(formatter.format(item.getMegaton()));
+            strKiloton = String.valueOf(formatter.format(item.getKiloton()));
+            strTonexplosives = String.valueOf(formatter.format(item.getTon()));
+            strDynecentimeter = String.valueOf(formatter.format(item.getDynecm()));
+            strGramforcemeter = String.valueOf(formatter.format(item.getGfm()));
+            strGramforcecentimeter = String.valueOf(formatter.format(item.getGfcm()));
+            strKilogramforcecentimeter = String.valueOf(formatter.format(item.getKgfcm()));
+            strKilogramforcemeter = String.valueOf(formatter.format(item.getKgfm()));
+            strKilopondmeter = String.valueOf(formatter.format(item.getKpm()));
+            strPoundforcefoot = String.valueOf(formatter.format(item.getPff()));
+            strPoundforceinch = String.valueOf(formatter.format(item.getPfi()));
+            strOunceforceinch = String.valueOf(formatter.format(item.getOfi()));
+            strFootpound = String.valueOf(formatter.format(item.getFp()));
+            strInchpound = String.valueOf(formatter.format(item.getIp()));
+            strInchounce = String.valueOf(formatter.format(item.getIo()));
+            strPoundalfoot = String.valueOf(formatter.format(item.getPdlft()));
+            strTherm = String.valueOf(formatter.format(item.getTherm()));
+            strThermEC = String.valueOf(formatter.format(item.getThermec()));
+            strThermUS = String.valueOf(formatter.format(item.getThermus()));
+            strHartreeenergy = String.valueOf(formatter.format(item.getHartree()));
+            strRydbergconstant = String.valueOf(formatter.format(item.getRydberg()));
 
-            strJoule =String.valueOf(formatter.format( item.getJoule()));
-            strKilojoule =String.valueOf(formatter.format(item.getKilojoule()));
-            strKilowatthour =String.valueOf(formatter.format(item.getKilowatthour()));
-            strWatthour =String.valueOf(formatter.format(item.getWatthour()));
-            strCalorienutritional =String.valueOf(formatter.format(item.getCalorie()));
-            strHorsepowermetrichour =String.valueOf(formatter.format(item.getHorsepower()));
-            strBtuIT =String.valueOf(formatter.format(item.getBtuIT()));
-            strBtuth =String.valueOf(formatter.format(item.getBtuth()));
-            strGigajoule =String.valueOf(formatter.format(item.getGigajoule()));
-            strMegajoule =String.valueOf(formatter.format(item.getMegajoule()));
-            strMillijoule =String.valueOf(formatter.format(item.getMillijoule()));
-            strMicrojoule =String.valueOf(formatter.format(item.getMicrojoule()));
-            strNanojoule =String.valueOf(formatter.format(item.getNanojoule()));
-            strAttojoule =String.valueOf(formatter.format(item.getAttojoule()));
-            strMegaelectronvolt =String.valueOf(formatter.format(item.getMegaelectronvolt()));
-            strKiloelectronvolt =String.valueOf(formatter.format(item.getKiloelectronvolt()));
-            strElectronvolt =String.valueOf(formatter.format(item.getElectronvolt()));
-            strErg =String.valueOf(formatter.format(item.getErg()));
-            strGigawatthour =String.valueOf(formatter.format(item.getGigawatthour()));
-            strMegawatthour =String.valueOf(formatter.format(item.getMegawatthour()));
-            strKilowattsecond =String.valueOf(formatter.format(item.getKilowattsecond()));
-            strWattsecond =String.valueOf(formatter.format(item.getWattsecond()));
-            strNewtonmeter =String.valueOf(formatter.format(item.getNewtonmeter()));
-            strHorsepowerhour =String.valueOf(formatter.format(item.getHorsepowerhour()));
-            strKilocalorieIT =String.valueOf(formatter.format(item.getKilocalorieIT()));
-            strKilocalorieth =String.valueOf(formatter.format(item.getKilocalorieth()));
-            strCalorieIT =String.valueOf(formatter.format(item.getCalorieit()));
-            strCalorieth =String.valueOf(formatter.format(item.getCalorieth()));
-            strMegaBtuIT =String.valueOf(formatter.format(item.getMegaBtuIT()));
-            strTonhourrefrigeration =String.valueOf(formatter.format(item.getTonhour()));
-            strFueloilequivalentkiloliter =String.valueOf(formatter.format(item.getFuelkl()));
-            strFueloilequivalentbarrelUS =String.valueOf(formatter.format(item.getFuelb()));
-            strGigaton =String.valueOf(formatter.format(item.getGigaton()));
-            strMegaton =String.valueOf(formatter.format(item.getMegaton()));
-            strKiloton =String.valueOf(formatter.format(item.getKiloton()));
-            strTonexplosives =String.valueOf(formatter.format(item.getTon()));
-            strDynecentimeter =String.valueOf(formatter.format(item.getDynecm()));
-            strGramforcemeter =String.valueOf(formatter.format(item.getGfm()));
-            strGramforcecentimeter=String.valueOf(formatter.format(item.getGfcm()));
-            strKilogramforcecentimeter =String.valueOf(formatter.format(item.getKgfcm()));
-            strKilogramforcemeter =String.valueOf(formatter.format(item.getKgfm()));
-            strKilopondmeter =String.valueOf(formatter.format(item.getKpm()));
-            strPoundforcefoot =String.valueOf(formatter.format(item.getPff()));
-            strPoundforceinch =String.valueOf(formatter.format(item.getPfi()));
-            strOunceforceinch =String.valueOf(formatter.format(item.getOfi()));
-            strFootpound =String.valueOf(formatter.format(item.getFp()));
-            strInchpound =String.valueOf(formatter.format(item.getIp()));
-            strInchounce =String.valueOf(formatter.format(item.getIo()));
-            strPoundalfoot =String.valueOf(formatter.format(item.getPdlft()));
-            strTherm =String.valueOf(formatter.format(item.getTherm()));
-            strThermEC =String.valueOf(formatter.format(item.getThermec()));
-            strThermUS =String.valueOf(formatter.format(item.getThermus()));
-            strHartreeenergy =String.valueOf(formatter.format(item.getHartree()));
-            strRydbergconstant =String.valueOf(formatter.format(item.getRydberg()));
 
-
-            list.add(new ItemList("J","Joule",strJoule,"J"));
-            list.add(new ItemList("kJ","Kilo joule",strKilojoule,"kJ"));
-            list.add(new ItemList("kW*h", "Kilo-watt hour",strKilowatthour,"kW*h"));
-            list.add(new ItemList("W*h","Watt-hour",strWatthour,"W*h"));
-            list.add(new ItemList("cal(nutritional)","Calorie (nutritional)",strCalorienutritional,"cal(nutritional)"));
-            list.add(new ItemList("hp*h","Horsepower (metric) hour",strHorsepowermetrichour,"hp*h"));
-            list.add(new ItemList("btu(IT),Btu","Btu(IT) ",strBtuIT,"btu(IT),Btu"));
-            list.add(new ItemList("btu(th)","Btu(th) ",strBtuth,"btu(th)"));
-            list.add(new ItemList("GJ","Giga joule ",strGigajoule,"GJ"));
-            list.add(new ItemList("MJ","Mega joule ",strMegajoule,"MJ"));
-            list.add(new ItemList("mJ","Milli joule ",strMillijoule,"mJ"));
-            list.add(new ItemList("μj","Micro joule",strMicrojoule,"μj"));
-            list.add(new ItemList("nJ","Nano joule ",strNanojoule,"nJ"));
-            list.add(new ItemList("aJ","Atto joule ",strAttojoule,"aJ"));
-            list.add(new ItemList("MeV","Mega electron-volt ",strMegaelectronvolt,"MeV"));
-            list.add(new ItemList("KeV","Kilo electron-volt ",strKiloelectronvolt,"KeV"));
-            list.add(new ItemList("eV","Electron-volt ",strElectronvolt,"eV"));
-            list.add(new ItemList("erg","Erg ",strErg,"erg"));
-            list.add(new ItemList("GW*h","Giga watt-hour ",strGigawatthour,"GW*h"));
-            list.add(new ItemList("MW*h","Mega watt-hour",strMegawatthour,"MW*h"));
-            list.add(new ItemList("kW*s","Kilo watt-second ",strKilowattsecond,"kW*s"));
-            list.add(new ItemList("W*s","Watt-second ",strWattsecond,"W*s"));
-            list.add(new ItemList("N*m","Newton meter ",strNewtonmeter,"N*m"));
-            list.add(new ItemList("hp*h","Horse power hour ",strHorsepowerhour,"hp*h"));
-            list.add(new ItemList("kcal(IT)","Kilo calorie(IT) ",strKilocalorieIT,"kcal(IT)"));
-            list.add(new ItemList("kcal(th)", "Kilo calorie(th) ",strKilocalorieth,"kcal(th)"));
-            list.add(new ItemList("cal(IT),cal","Calorie(IT)",strCalorieIT,"cal(IT),cal"));
-            list.add(new ItemList("cal(th)","Calorie(th) ",strCalorieth,"cal(th)"));
-            list.add(new ItemList("MBtu(IT)","Mega Btu (IT) ",strMegaBtuIT,"MBtu(IT)"));
-            list.add(new ItemList("ton*h","Ton-hour (refrigeration) ",strTonhourrefrigeration,"ton*h"));
-            list.add(new ItemList("kl", "Fuel oil equivalent @kiloliter",strFueloilequivalentkiloliter,"kl"));
-            list.add(new ItemList("bbl","Fuel oil equivalent @barrel (US) ",strFueloilequivalentbarrelUS,"bbl"));
-            list.add(new ItemList("Gton","Giga ton ",strGigaton,"Gton"));
-            list.add(new ItemList("Mton","Mega ton ",strMegaton,"Mton"));
-            list.add(new ItemList("kton","Kilo ton ",strKiloton,"kton"));
-            list.add(new ItemList("ton","Ton (explosives) ",strTonexplosives,"ton"));
-            list.add(new ItemList("dyn*cm","Dyne centimeter ",strDynecentimeter,"dyn*cm"));
-            list.add(new ItemList("gf*m","Gram-force meter ",strGramforcemeter,"gf*m"));
-            list.add(new ItemList("gf*cm","Gram-force centimeter ",strGramforcecentimeter,"gf*cm"));
-            list.add(new ItemList("kgf*cm","Kilogram-force centimeter ",strKilogramforcecentimeter,"kgf*cm"));
-            list.add(new ItemList("kgf*m","Kilogram-force meter ",strKilogramforcemeter,"kgf*m"));
-            list.add(new ItemList("kp*m","Kilo pond meter ",strKilopondmeter,"kp*m"));
-            list.add(new ItemList("lbf*ft","Pound-force foot ",strPoundforcefoot,"lbf*ft"));
-            list.add(new ItemList("lbf*in","Pound-force inch ",strPoundforceinch,"lbf*in"));
-            list.add(new ItemList("ozf*in","Ounce-force inch ",strOunceforceinch,"ozf*in"));
-            list.add(new ItemList("ft*lbf","Foot-pound ",strFootpound,"ft*lbf"));
-            list.add(new ItemList("in*lbf","Inch-pound ",strInchpound,"in*lbf"));
-            list.add(new ItemList("in*ozf","Inch-ounce ",strInchounce,"in*ozf"));
-            list.add(new ItemList("pdl*ft","Poundal foot ",strPoundalfoot,"pdl*ft"));
-            list.add(new ItemList("therm","Therm ",strTherm,"therm"));
-            list.add(new ItemList("therm","Therm(EC) ",strThermEC,"therm"));
-            list.add(new ItemList("therm","Therm(US) ",strThermUS,"therm"));
-            list.add(new ItemList("He","Hartree energy ",strHartreeenergy,"He"));
-            list.add(new ItemList("Rc","Rydberg constant ",strRydbergconstant,"Rc"));
-
+            list.add(new ItemList("J", "Joule", strJoule, "J"));
+            list.add(new ItemList("kJ", "Kilo joule", strKilojoule, "kJ"));
+            list.add(new ItemList("kW*h", "Kilo-watt hour", strKilowatthour, "kW*h"));
+            list.add(new ItemList("W*h", "Watt-hour", strWatthour, "W*h"));
+            list.add(new ItemList("cal(nutritional)", "Calorie (nutritional)", strCalorienutritional, "cal(nutritional)"));
+            list.add(new ItemList("hp*h", "Horsepower (metric) hour", strHorsepowermetrichour, "hp*h"));
+            list.add(new ItemList("btu(IT),Btu", "Btu(IT) ", strBtuIT, "btu(IT),Btu"));
+            list.add(new ItemList("btu(th)", "Btu(th) ", strBtuth, "btu(th)"));
+            list.add(new ItemList("GJ", "Giga joule ", strGigajoule, "GJ"));
+            list.add(new ItemList("MJ", "Mega joule ", strMegajoule, "MJ"));
+            list.add(new ItemList("mJ", "Milli joule ", strMillijoule, "mJ"));
+            list.add(new ItemList("μj", "Micro joule", strMicrojoule, "μj"));
+            list.add(new ItemList("nJ", "Nano joule ", strNanojoule, "nJ"));
+            list.add(new ItemList("aJ", "Atto joule ", strAttojoule, "aJ"));
+            list.add(new ItemList("MeV", "Mega electron-volt ", strMegaelectronvolt, "MeV"));
+            list.add(new ItemList("KeV", "Kilo electron-volt ", strKiloelectronvolt, "KeV"));
+            list.add(new ItemList("eV", "Electron-volt ", strElectronvolt, "eV"));
+            list.add(new ItemList("erg", "Erg ", strErg, "erg"));
+            list.add(new ItemList("GW*h", "Giga watt-hour ", strGigawatthour, "GW*h"));
+            list.add(new ItemList("MW*h", "Mega watt-hour", strMegawatthour, "MW*h"));
+            list.add(new ItemList("kW*s", "Kilo watt-second ", strKilowattsecond, "kW*s"));
+            list.add(new ItemList("W*s", "Watt-second ", strWattsecond, "W*s"));
+            list.add(new ItemList("N*m", "Newton meter ", strNewtonmeter, "N*m"));
+            list.add(new ItemList("hp*h", "Horse power hour ", strHorsepowerhour, "hp*h"));
+            list.add(new ItemList("kcal(IT)", "Kilo calorie(IT) ", strKilocalorieIT, "kcal(IT)"));
+            list.add(new ItemList("kcal(th)", "Kilo calorie(th) ", strKilocalorieth, "kcal(th)"));
+            list.add(new ItemList("cal(IT),cal", "Calorie(IT)", strCalorieIT, "cal(IT),cal"));
+            list.add(new ItemList("cal(th)", "Calorie(th) ", strCalorieth, "cal(th)"));
+            list.add(new ItemList("MBtu(IT)", "Mega Btu (IT) ", strMegaBtuIT, "MBtu(IT)"));
+            list.add(new ItemList("ton*h", "Ton-hour (refrigeration) ", strTonhourrefrigeration, "ton*h"));
+            list.add(new ItemList("kl", "Fuel oil equivalent @kiloliter", strFueloilequivalentkiloliter, "kl"));
+            list.add(new ItemList("bbl", "Fuel oil equivalent @barrel (US) ", strFueloilequivalentbarrelUS, "bbl"));
+            list.add(new ItemList("Gton", "Giga ton ", strGigaton, "Gton"));
+            list.add(new ItemList("Mton", "Mega ton ", strMegaton, "Mton"));
+            list.add(new ItemList("kton", "Kilo ton ", strKiloton, "kton"));
+            list.add(new ItemList("ton", "Ton (explosives) ", strTonexplosives, "ton"));
+            list.add(new ItemList("dyn*cm", "Dyne centimeter ", strDynecentimeter, "dyn*cm"));
+            list.add(new ItemList("gf*m", "Gram-force meter ", strGramforcemeter, "gf*m"));
+            list.add(new ItemList("gf*cm", "Gram-force centimeter ", strGramforcecentimeter, "gf*cm"));
+            list.add(new ItemList("kgf*cm", "Kilogram-force centimeter ", strKilogramforcecentimeter, "kgf*cm"));
+            list.add(new ItemList("kgf*m", "Kilogram-force meter ", strKilogramforcemeter, "kgf*m"));
+            list.add(new ItemList("kp*m", "Kilo pond meter ", strKilopondmeter, "kp*m"));
+            list.add(new ItemList("lbf*ft", "Pound-force foot ", strPoundforcefoot, "lbf*ft"));
+            list.add(new ItemList("lbf*in", "Pound-force inch ", strPoundforceinch, "lbf*in"));
+            list.add(new ItemList("ozf*in", "Ounce-force inch ", strOunceforceinch, "ozf*in"));
+            list.add(new ItemList("ft*lbf", "Foot-pound ", strFootpound, "ft*lbf"));
+            list.add(new ItemList("in*lbf", "Inch-pound ", strInchpound, "in*lbf"));
+            list.add(new ItemList("in*ozf", "Inch-ounce ", strInchounce, "in*ozf"));
+            list.add(new ItemList("pdl*ft", "Poundal foot ", strPoundalfoot, "pdl*ft"));
+            list.add(new ItemList("therm", "Therm ", strTherm, "therm"));
+            list.add(new ItemList("therm", "Therm(EC) ", strThermEC, "therm"));
+            list.add(new ItemList("therm", "Therm(US) ", strThermUS, "therm"));
+            list.add(new ItemList("He", "Hartree energy ", strHartreeenergy, "He"));
+            list.add(new ItemList("Rc", "Rydberg constant ", strRydbergconstant, "Rc"));
 
 
         }
@@ -525,15 +557,14 @@ public class ConversionEnergyListActivity extends AppCompatActivity implements T
         rowListItem.clear();
         try {
 
-           double value = Double.parseDouble(edittextConversionListvalue.getText().toString().trim());
+            double value = Double.parseDouble(edittextConversionListvalue.getText().toString().trim());
 
-            rowListItem1 = getAllunitValue(stringSpinnerFrom,value);
+            rowListItem1 = getAllunitValue(stringSpinnerFrom, value);
 
 
-            rcAdapter = new RecyclerViewConversionListAdapter(this,rowListItem1);
+            rcAdapter = new RecyclerViewConversionListAdapter(this, rowListItem1);
             rView.setAdapter(rcAdapter);
-        }
-        catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             doubleEdittextvalue = 0;
 
         }
@@ -543,58 +574,12 @@ public class ConversionEnergyListActivity extends AppCompatActivity implements T
     public void afterTextChanged(Editable s) {
 
     }
-   /* @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.main_list, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Take appropriate action for each action item click
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                Intent i = new Intent(this, ActivitySetting.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivityForResult(i, REQUEST_CODE);
-                break;
-            case R.id.action_saveaspdf:
-                creatPdf();
-                Toast.makeText(ConversionEnergyListActivity.this,"File saved successfully" + "\n File Path: "+imageFile,Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.action_share:
-                shareIt();
-                break;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-        return true;
-    }
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        switch (keyCode) {
-            case KeyEvent.KEYCODE_BACK:
-                this.finish();
-                return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1) {
-            if(resultCode == RESULT_OK){
-                String stredittext=data.getStringExtra("edittextvalue");
-                edittextConversionListvalue.setText(stredittext);
-            }
-        }
-    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.main_list, menu);
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -604,19 +589,12 @@ public class ConversionEnergyListActivity extends AppCompatActivity implements T
             case android.R.id.home:
                 this.finish();
                 break;
-            case R.id.action_saveaspdf:
-                creatPdf();
-                Toast.makeText(this,"File saved successfully" + "\n File Path: "+imageFile,Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.action_share:
-                shareIt();
-                break;
-
             default:
                 return super.onOptionsItemSelected(item);
         }
         return true;
     }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
@@ -625,71 +603,6 @@ public class ConversionEnergyListActivity extends AppCompatActivity implements T
                 return true;
         }
         return super.onKeyDown(keyCode, event);
-    }
 
-    private void creatPdf() {
-        pdf();
-        printhelper.printBitmap("Your list",bitmap);
-    }
-
-    private void shareIt() {
-        pdf();
-        Uri uri = Uri.fromFile(imageFile);
-        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-        sharingIntent.setType("image/*");
-        String shareBody = "List of all Unit values.";
-        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "List of Units");
-        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-        sharingIntent.putExtra(Intent.EXTRA_STREAM, uri);
-        startActivity(Intent.createChooser(sharingIntent, "Share via"));
-
-    }
-
-    private void pdf() {
-        printhelper=new PrintHelper(ConversionEnergyListActivity.this);
-        printhelper.setScaleMode(PrintHelper.SCALE_MODE_FIT);
-        Date now = new Date();
-        android.text.format.DateFormat.format("yyyy-MM-dd_hh:mm:ss", now);
-        // image naming and path  to include sd card  appending name you choose for file
-        String mPath = Environment.getExternalStorageDirectory().toString() + "/" + now + ".JPEG";
-        LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
-        RelativeLayout root = (RelativeLayout) inflater.inflate(R.layout.activity_conversion_list, null); //RelativeLayout is root view of my UI(xml) file.
-        root.setDrawingCacheEnabled(true);
-        bitmap= getBitmapFromView(this.getWindow().findViewById(R.id.relativelayout));
-        imageFile = new File(mPath);
-        try{
-            FileOutputStream outputStream = new FileOutputStream(imageFile);
-            // Toast.makeText(ConversionEnergyListActivity.this,"Image path : "+imageFile,Toast.LENGTH_LONG).show();
-            int quality = 100;
-            bitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream);
-            outputStream.flush();
-            outputStream.close();
-
-            // openScreenshot(imageFile);
-        } catch (Throwable e) {
-            // Several error may come out with file handling or OOM
-            e.printStackTrace();
-        }
-    }
-
-    //create bitmap from view and returns it
-    private Bitmap getBitmapFromView(View view) {
-        //Define a bitmap with the same size as the view
-        Bitmap returnedBitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(),Bitmap.Config.ARGB_8888);
-        //Bind a canvas to it
-        Canvas canvas = new Canvas(returnedBitmap);
-        //Get the view's background
-        Drawable bgDrawable =view.getBackground();
-        if (bgDrawable!=null) {
-            //has background drawable, then draw it on the canvas
-            bgDrawable.draw(canvas);
-        }   else{
-            //does not have background drawable, then draw white background on the canvas
-            canvas.drawColor(Color.WHITE);
-        }
-        // draw the view on the canvas
-        view.draw(canvas);
-        //return the bitmap
-        return returnedBitmap;
     }
 }

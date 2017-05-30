@@ -69,7 +69,7 @@ public class RecyclerViewConversionListAdapter extends RecyclerView.Adapter<Recy
 
 
 
-    public class RecyclerViewHolders extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class RecyclerViewHolders extends RecyclerView.ViewHolder {
 
         public TextView unitshortForm,unitName;
         public TextView unitValue,unitvaluename;
@@ -77,7 +77,7 @@ public class RecyclerViewConversionListAdapter extends RecyclerView.Adapter<Recy
 
         public RecyclerViewHolders(View itemView) {
             super(itemView);
-            itemView.setOnClickListener(this);
+         //   itemView.setOnClickListener(this);
 
             unitshortForm = (TextView)itemView.findViewById(R.id.Unitshortform);
             unitName = (TextView)itemView.findViewById(R.id.Unitname);
@@ -87,11 +87,11 @@ public class RecyclerViewConversionListAdapter extends RecyclerView.Adapter<Recy
 
         }
 
-
+/*
         @Override
         public void onClick(View view) {
            // Toast.makeText(view.getContext(), "Clicked Country Position = " + getPosition(), Toast.LENGTH_SHORT).show();
-          /*  switch (getPosition())
+          *//*  switch (getPosition())
             {
                 case 0:
                     Intent i=new Intent(context,LengthActivity.class);
@@ -135,10 +135,10 @@ public class RecyclerViewConversionListAdapter extends RecyclerView.Adapter<Recy
                     break;
 
 
-            }*/
+            }*//*
 
 
-        }
+        }*/
 
 
 

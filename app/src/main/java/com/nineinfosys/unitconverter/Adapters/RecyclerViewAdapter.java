@@ -24,7 +24,9 @@ import com.nineinfosys.unitconverter.ConverterActivities.CommonConverter.Pressur
 import com.nineinfosys.unitconverter.ConverterActivities.CommonConverter.RomanNumbersActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.CommonConverter.SpeedActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.CommonConverter.TempertureActivity;
+import com.nineinfosys.unitconverter.ConverterActivities.CommonConverter.Time.TimeMainActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.CommonConverter.TimeActivity;
+
 import com.nineinfosys.unitconverter.ConverterActivities.CommonConverter.VolumeActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.CommonConverter.VolumeDryActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.CommonConverter.WeightActivity;
@@ -89,8 +91,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             switch (getPosition())
             {
                 case 0:
-                   /* Intent i=new Intent(context,TimeZone.class);
-                    context.startActivity(i);*/
+                    Intent i=new Intent(context,TimeMainActivity.class);
+                    context.startActivity(i);
                     break;
                 case 1:
                     Intent i1=new Intent(context,LengthActivity.class);

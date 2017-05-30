@@ -1,6 +1,7 @@
 package com.nineinfosys.unitconverter;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,9 +14,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 
+import android.widget.ImageView;
 import android.widget.ListView;
 
 
+import com.amulyakhare.textdrawable.TextDrawable;
 import com.nineinfosys.unitconverter.ConverterActivities.CommonConverter.AngleActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.CommonConverter.AreaActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.CommonConverter.DataStorageActivity;
@@ -2761,7 +2764,7 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
                     case "Pound-force foot -lbf*ft" : torque(); break;
                     case "Pound-force inch -lbf*in" : torque(); break;
 
-                    //light
+                    //heat
                     //fueleffiency mass
                     case "Joule/kilogram -J/kg" : fueleffiency(); break;
                     case "Kilojoule/kilogram -kJ/kg" : fueleffiency(); break;

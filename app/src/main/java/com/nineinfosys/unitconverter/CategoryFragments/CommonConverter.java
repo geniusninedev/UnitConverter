@@ -1,6 +1,5 @@
 package com.nineinfosys.unitconverter.CategoryFragments;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -9,9 +8,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.nineinfosys.unitconverter.Adapters.RecyclerViewAdapter;
 
+import com.nineinfosys.unitconverter.MainActivity;
 import com.nineinfosys.unitconverter.R;
 import com.nineinfosys.unitconverter.Supporter.ItemObject;
 
@@ -28,7 +30,6 @@ public class CommonConverter extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View v = inflater.inflate(R.layout.layout_common_converter, null);
-
 
         viewPager = (ViewPager) getActivity().findViewById(R.id.viewpager);
 
@@ -50,7 +51,7 @@ public class CommonConverter extends Fragment {
 
 
         List<ItemObject> allItems = new ArrayList<ItemObject>();
-        allItems.add(new ItemObject("Time Zone", R.drawable.exchange));
+        allItems.add(new ItemObject("Time Zone", R.drawable.timezone));
         allItems.add(new ItemObject("Length", R.drawable.lenght));
         allItems.add(new ItemObject("Weight", R.drawable.weight));
         allItems.add(new ItemObject("Volume", R.drawable.volume));
@@ -67,8 +68,6 @@ public class CommonConverter extends Fragment {
         allItems.add(new ItemObject("Roman Numbers", R.drawable.numbers));
         allItems.add(new ItemObject("Data Storage", R.drawable.storage));
         allItems.add(new ItemObject("volume-Dry", R.drawable.measuringcup));
-
-
 
 
 

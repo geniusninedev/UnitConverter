@@ -147,7 +147,6 @@ public class MainActivity extends AppCompatActivity
                     return new LightConverter();
                 case 4:
                     return new FluidsConverter();
-
                 case 5:
                     return new ElectricityConverter();
                 case 6:
@@ -156,7 +155,6 @@ public class MainActivity extends AppCompatActivity
                     return new RadiologyConverter();
                 case 8:
                     return new OtherConverter();
-
 
             }
             return null;
@@ -291,7 +289,4 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
-
-    }
+ }

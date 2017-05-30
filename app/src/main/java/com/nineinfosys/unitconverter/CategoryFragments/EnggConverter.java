@@ -50,8 +50,6 @@ public class EnggConverter  extends Fragment {
 
     private List<ItemObject> getAllItemList(){
 
-
-
         List<ItemObject> allItems = new ArrayList<ItemObject>();
         allItems.add(new ItemObject("Velocity - Angular ", R.drawable.velocity));
         allItems.add(new ItemObject("Acceleration", R.drawable.accleration));

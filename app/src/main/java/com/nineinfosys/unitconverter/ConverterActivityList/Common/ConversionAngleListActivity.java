@@ -283,7 +283,7 @@ public class ConversionAngleListActivity extends AppCompatActivity implements Te
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.main_list, menu);
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -292,13 +292,6 @@ public class ConversionAngleListActivity extends AppCompatActivity implements Te
         switch (item.getItemId()) {
             case android.R.id.home:
                 this.finish();
-                break;
-            case R.id.action_saveaspdf:
-                creatPdf();
-                Toast.makeText(this,"File saved successfully" + "\n File Path: "+imageFile,Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.action_share:
-                shareIt();
                 break;
 
             default:
@@ -316,7 +309,7 @@ public class ConversionAngleListActivity extends AppCompatActivity implements Te
         return super.onKeyDown(keyCode, event);
     }
 
-    private void creatPdf() {
+   /* private void creatPdf() {
         pdf();
         printhelper.printBitmap("Your list",bitmap);
     }
@@ -325,7 +318,7 @@ public class ConversionAngleListActivity extends AppCompatActivity implements Te
         pdf();
         Uri uri = Uri.fromFile(imageFile);
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-        sharingIntent.setType("image/*");
+        sharingIntent.setType("image*//*");
         String shareBody = "List of all Unit values.";
         sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "List of Units");
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
@@ -344,6 +337,7 @@ public class ConversionAngleListActivity extends AppCompatActivity implements Te
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
         RelativeLayout root = (RelativeLayout) inflater.inflate(R.layout.activity_conversion_list, null); //RelativeLayout is root view of my UI(xml) file.
         root.setDrawingCacheEnabled(true);
+
         bitmap= getBitmapFromView(this.getWindow().findViewById(R.id.relativelayout));
         imageFile = new File(mPath);
         try{
@@ -380,5 +374,5 @@ public class ConversionAngleListActivity extends AppCompatActivity implements Te
         view.draw(canvas);
         //return the bitmap
         return returnedBitmap;
-    }
+    }*/
 }
