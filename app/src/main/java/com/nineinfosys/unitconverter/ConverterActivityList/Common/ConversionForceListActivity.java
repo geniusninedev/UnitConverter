@@ -125,7 +125,7 @@ public class ConversionForceListActivity extends AppCompatActivity implements Te
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conversion_list);
 
-        sv = (ScrollView) findViewById(R.id.ssscrollView);
+        sv = (ScrollView) findViewById(R.id.scrollView);
         contentroot = findViewById(R.id.relativelayout);
         //keyboard hidden first time
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);

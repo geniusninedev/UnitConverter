@@ -96,10 +96,10 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Firebase.setAndroidContext(this);
-        FacebookSdk.sdkInitialize(getApplicationContext());
+//        Firebase.setAndroidContext(this);
+//        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_main);
-        AppEventsLogger.activateApp(this);
+        //AppEventsLogger.activateApp(this);
 
         authenticate();
 
