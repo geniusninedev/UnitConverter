@@ -31,7 +31,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.nineinfosys.unitconverter.ConverterActivities.ActivitySetting;
+import com.nineinfosys.unitconverter.ConverterActivities.Fluids.PermeabillityActivity;
 import com.nineinfosys.unitconverter.ConverterActivityList.HeatConverter.ConversionFuelEfficiencyVolumeListActivity;
 import com.nineinfosys.unitconverter.Engines.Heat.FuelEfficiencyVolumeConverter;
 import com.nineinfosys.unitconverter.R;
@@ -82,6 +86,10 @@ public class FuelEfficiencyVolumeActivity extends AppCompatActivity implements V
         formatsetting();
 
 
+        MobileAds.initialize(FuelEfficiencyVolumeActivity.this, getString(R.string.ads_app_id));
+        AdView mAdView = (AdView) findViewById(R.id.adViewUnitConverter);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
         //keyboard hidden first time

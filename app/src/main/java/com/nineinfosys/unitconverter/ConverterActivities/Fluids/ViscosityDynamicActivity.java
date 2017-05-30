@@ -31,7 +31,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.nineinfosys.unitconverter.ConverterActivities.ActivitySetting;
+import com.nineinfosys.unitconverter.ConverterActivities.Engineering.VelocityAngularActivity;
 import com.nineinfosys.unitconverter.ConverterActivityList.Fluids.ConversionViscosityDynamicListActivity;
 import com.nineinfosys.unitconverter.Engines.Fluids.ViscosityDynamicConverter;
 import com.nineinfosys.unitconverter.R;
@@ -82,6 +86,10 @@ public class ViscosityDynamicActivity extends AppCompatActivity implements View.
 
         formatsetting();
 
+        MobileAds.initialize(ViscosityDynamicActivity.this, getString(R.string.ads_app_id));
+        AdView mAdView = (AdView) findViewById(R.id.adViewUnitConverter);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
 

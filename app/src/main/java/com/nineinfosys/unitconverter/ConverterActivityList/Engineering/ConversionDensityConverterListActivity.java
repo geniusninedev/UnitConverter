@@ -30,9 +30,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.nineinfosys.unitconverter.Adapters.RecyclerViewConversionListAdapter;
 
 import com.nineinfosys.unitconverter.ConverterActivities.ActivitySetting;
+import com.nineinfosys.unitconverter.ConverterActivityList.Electricity.SurfaceCurrentDensityListActivity;
 import com.nineinfosys.unitconverter.Engines.Engineering.DensityConverter;
 import com.nineinfosys.unitconverter.R;
 import com.nineinfosys.unitconverter.Supporter.ItemList;
@@ -96,6 +100,10 @@ public class ConversionDensityConverterListActivity extends AppCompatActivity im
         //format of decimal pint
         formatsetting();
 
+        MobileAds.initialize(ConversionDensityConverterListActivity.this, getString(R.string.ads_app_id));
+        AdView mAdView = (AdView) findViewById(R.id.adViewUnitConverterList);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         edittextConversionListvalue=(EditText)findViewById(R.id.edittextConversionListvalue) ;
         textconversionFrom=(TextView) findViewById(R.id.textViewConversionFrom) ;

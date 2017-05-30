@@ -33,9 +33,13 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.nineinfosys.unitconverter.Adapters.RecyclerViewConversionListAdapter;
 import com.nineinfosys.unitconverter.ConverterActivities.ActivitySetting;
 import com.nineinfosys.unitconverter.ConverterActivityList.Common.ConversionAreaListActivity;
+import com.nineinfosys.unitconverter.ConverterActivityList.Magnetism.ConversionMagnetomotiveForceList;
 import com.nineinfosys.unitconverter.Engines.Common.TemperatureConverter;
 import com.nineinfosys.unitconverter.Engines.Other.SoundConverter;
 import com.nineinfosys.unitconverter.R;
@@ -95,6 +99,11 @@ public class ConversionSoundListActivity extends AppCompatActivity implements Te
 
         //format of decimal pint
         formatsetting();
+
+        MobileAds.initialize(ConversionSoundListActivity.this, getString(R.string.ads_app_id));
+        AdView mAdView = (AdView) findViewById(R.id.adViewUnitConverterList);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         //initialization of designing tools
         //ll = (ScrollView)findViewById(R.id.linearlayout);

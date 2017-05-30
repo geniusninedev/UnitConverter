@@ -8,18 +8,17 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/unit_converter_logo"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
-        android:hardwareAccelerated="false"
-        android:roundIcon="@mipmap/unit_converter_logo"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppThemeNoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,91 +26,127 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ConverterActivities.ActivitySetting">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".MainActivity" />
-        </activity>
+        <activity android:name=".ConverterActivities.ActivitySetting" />
         <activity android:name=".SearchActivity" />
-        <activity android:name=".ConverterActivities.CommonConverter.Time.TimeMainActivity"></activity>
         <activity android:name=".ConverterActivities.CommonConverter.RomanNumbersActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
 
         <activity android:name=".ConverterActivities.CommonConverter.TempertureActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.Common.ConversionTempListActivity" />
 
         <activity android:name=".ConverterActivities.CommonConverter.AreaActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivities.CommonConverter.PressureActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.Common.ConversionAreaListActivity" />
         <activity android:name=".ConverterActivityList.Common.ConversionPressureListAvtivity" />
         <activity android:name=".ConverterActivities.CommonConverter.AngleActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivities.CommonConverter.SpeedActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.Common.ConversionSpeedListActivity" />
         <activity android:name=".ConverterActivityList.Common.ConversionAngleListActivity" />
         <activity android:name=".ConverterActivities.CommonConverter.ForceActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.Common.ConversionForceListActivity" />
         <activity android:name=".ConverterActivities.CommonConverter.TimeActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivities.CommonConverter.VolumeActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.Common.ConversionTimeListActivity" />
         <activity android:name=".ConverterActivities.CommonConverter.VolumeDryActivity" />
         <activity android:name=".ConverterActivityList.Common.ConversionVolumeDryListActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivities.CommonConverter.EnergyActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.Common.ConversionEnergyListActivity" />
         <activity android:name=".ConverterActivities.CommonConverter.DataStorageActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.Common.ConversionDataStorageListActivity" />
         <activity android:name=".ConverterActivities.CommonConverter.PowerActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.Common.ConversionPowerListActivity" />
         <activity android:name=".ConverterActivities.CommonConverter.LengthActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.Common.ConversionLenghtListActivity" />
         <activity android:name=".ConverterActivities.CommonConverter.FuelActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.Common.ConversionFuelListActivity" />
         <activity android:name=".ConverterActivityList.Common.ConversionVolumeListActivity" />
         <activity android:name=".ConverterActivities.CommonConverter.WeightActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.Common.ConversionWeightListActivity" />
         .ConverterActivities.Magnetism.
 
         //magnetism
         <activity android:name=".ConverterActivities.Magnetism.MagneticFieldStrengthActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivities.Magnetism.MagneticFluxActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivities.Magnetism.MagnetomotiveForceActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivities.Magnetism.MagneticFluxDensityActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.Magnetism.ConversionFluxListActivity" />
         <activity android:name=".ConverterActivityList.Magnetism.ConversionMagneticFluxListActivity" />
@@ -119,143 +154,276 @@
         <activity android:name=".ConverterActivityList.Magnetism.ConversionMagnetomotiveForceList" />
         //engineering
         <activity android:name=".ConverterActivities.Engineering.VelocityAngularActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.Engineering.ConversionVelocityAngularListActivity" />
         <activity android:name=".ConverterActivities.Engineering.AccelerationActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.Engineering.ConversionAccelerationListActivity" />
         <activity android:name=".ConverterActivities.Engineering.AccelerationAngularActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.Engineering.ConversionAccelerationAngularListActivity" />
         <activity android:name=".ConverterActivities.Engineering.SpecificVolumeActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.Engineering.ConversionSpecificVolumeListActivity" />
         <activity android:name=".ConverterActivities.Engineering.DensityConverterActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.Engineering.ConversionDensityConverterListActivity" />
         <activity android:name=".ConverterActivities.Engineering.MomentOfInertiaActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.Engineering.ConversionMomentOfInertiaListActivity" />
-        <activity android:name=".ConverterActivities.Engineering.MomentofForceActivity"/>
-
+        <activity android:name=".ConverterActivities.Engineering.MomentofForceActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Engineering.ConversionMomentofForceListActivity" />
-        <activity android:name=".ConverterActivities.Engineering.TorqueActivity"/>
-
+        <activity android:name=".ConverterActivities.Engineering.TorqueActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Engineering.ConversionTorqueListActivity" />
         //radiology
-        <activity android:name=".ConverterActivities.Radiology.RadiationActivity"/>
-
-        <activity android:name=".ConverterActivities.Radiology.RadiationAbsorbedDoseActivity"/>
-
-        <activity android:name=".ConverterActivities.Radiology.RadiationConverterActivity"/>
-
-        <activity android:name=".ConverterActivities.Radiology.RadiationExposureActivity"/>
-
+        <activity android:name=".ConverterActivities.Radiology.RadiationActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".ConverterActivities.Radiology.RadiationAbsorbedDoseActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".ConverterActivities.Radiology.RadiationConverterActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".ConverterActivities.Radiology.RadiationExposureActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Radiology.ConversionRadiationExposureListActivity" />
         <activity android:name=".ConverterActivityList.Radiology.RadiationListActivity" />
         <activity android:name=".ConverterActivityList.Radiology.ConversionRadiationAbsorbedDoseListActivity" />
         <activity android:name=".ConverterActivityList.Radiology.RadiationConverterListAcivity" />
         //heat converter
         <activity android:name=".ConverterActivities.HeatConverter.FuelEfficiencyMassActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.HeatConverter.ConversionFuelEfficiencyMassListActivity" />
         <activity android:name=".ConverterActivities.HeatConverter.FuelEfficiencyVolumeActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.HeatConverter.ConversionFuelEfficiencyVolumeListActivity" />
         <activity android:name=".ConverterActivities.HeatConverter.TemperatureIntervalActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.HeatConverter.ConversionTemperatureIntervalListActivity" />
         <activity android:name=".ConverterActivities.HeatConverter.ThermalExpansionActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.HeatConverter.ConversionThermalExpansionListActivity" />
         <activity android:name=".ConverterActivities.HeatConverter.ThermalResistanceActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.HeatConverter.ConversionThermalResistanceListActivity" />
-        <activity android:name=".ConverterActivities.HeatConverter.ThermalConductivityActivity"/>
-
+        <activity android:name=".ConverterActivities.HeatConverter.ThermalConductivityActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.HeatConverter.ConversionThermalConductivityListActivity" />
-        <activity android:name=".ConverterActivities.HeatConverter.SpecificHeatCapacityActivity"/>
-
+        <activity android:name=".ConverterActivities.HeatConverter.SpecificHeatCapacityActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.HeatConverter.ConversionSpecificHeatCapacityListActivity" />
-        <activity android:name=".ConverterActivities.HeatConverter.HeatDensityActivity"/>
-
+        <activity android:name=".ConverterActivities.HeatConverter.HeatDensityActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.HeatConverter.ConversionHeatDensityListActivity" />
-        <activity android:name=".ConverterActivities.HeatConverter.HeatFluxDensityActivity"/>
-
+        <activity android:name=".ConverterActivities.HeatConverter.HeatFluxDensityActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.HeatConverter.ConversionHeatFluxDensityListActivity" />
-        <activity android:name=".ConverterActivities.HeatConverter.HeatTransferCoefficientActivity"/>
-
+        <activity android:name=".ConverterActivities.HeatConverter.HeatTransferCoefficientActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.HeatConverter.ConversionHeatTransferCoefficientListActivity" />
         //Fluids
-        <activity android:name=".ConverterActivities.Fluids.FlowActivity"/>
-
+        <activity android:name=".ConverterActivities.Fluids.FlowActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Fluids.ConversionFlowListActivity" />
-        <activity android:name=".ConverterActivities.Fluids.FlowMassActivity"/>
-
+        <activity android:name=".ConverterActivities.Fluids.FlowMassActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Fluids.ConversionFlowMassListActivity" />
-        <activity android:name=".ConverterActivities.Fluids.FlowMolarActivity"/>
-
+        <activity android:name=".ConverterActivities.Fluids.FlowMolarActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Fluids.ConversionFlowMolarListActivity" />
-        <activity android:name=".ConverterActivities.Fluids.MassFluxDensityActivity"/>
-
+        <activity android:name=".ConverterActivities.Fluids.MassFluxDensityActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Fluids.ConversionMassFluxDensityListActivity" />
-        <activity android:name=".ConverterActivities.Fluids.ConcentrationMolarActivity"/>
-
+        <activity android:name=".ConverterActivities.Fluids.ConcentrationMolarActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Fluids.ConversionConcentrationMolarListActivity" />
-        <activity android:name=".ConverterActivities.Fluids.ConcentrationSolutionActivity"/>
-
+        <activity android:name=".ConverterActivities.Fluids.ConcentrationSolutionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Fluids.ConversionConcentrationSolutionListActivity" />
-        <activity android:name=".ConverterActivities.Fluids.ViscosityDynamicActivity"/>
-
+        <activity android:name=".ConverterActivities.Fluids.ViscosityDynamicActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Fluids.ConversionViscosityDynamicListActivity" />
-        <activity android:name=".ConverterActivities.Fluids.ViscosityKinematicActivity"/>
-
+        <activity android:name=".ConverterActivities.Fluids.ViscosityKinematicActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Fluids.ConversionViscosityKinematicListActivity" />
         <activity android:name=".ConverterActivities.Fluids.SurfaceTensionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.Fluids.ConversionSurfaceTensionListActivity" />
         <activity android:name=".ConverterActivities.Fluids.PermeabillityActivity">
-         </activity>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Fluids.ConversionPermeabillityListActivity" />
         //electricity
-        <activity android:name=".ConverterActivities.Electricity.LinearChargeDensityConverterActivity"/>
-
-        <activity android:name=".ConverterActivities.Electricity.SurfaceChargeDensityConverterActivity"/>
-
-        <activity android:name=".ConverterActivities.Electricity.VolumeChargeDensityActivity"/>
-
-        <activity android:name=".ConverterActivities.Electricity.LinearCurrentDensityActivity"/>
-
-        <activity android:name=".ConverterActivities.Electricity.ElectricFieldStrengthActivity"/>
-
-        <activity android:name=".ConverterActivities.Electricity.ElectricPotentialActivity"/>
-        <activity android:name=".ConverterActivities.Electricity.SurfaceCurrentDensityActivity"/>
-
-        <activity android:name=".ConverterActivities.Electricity.ElectricResistanceConverterActivity"/>
-
-        <activity android:name=".ConverterActivities.Electricity.ElectricResistivityConverterActivity"/>
-
-        <activity android:name=".ConverterActivities.Electricity.ConductanceConverterActivity"/>
-
-        <activity android:name=".ConverterActivities.Electricity.ChargeConverterActivity"/>
-
-        <activity android:name=".ConverterActivities.Electricity.ConductivityConverterActivity"/>
-
-        <activity android:name=".ConverterActivities.Electricity.ElectrostaticCapacitanceActivity"/>
-        <activity android:name=".ConverterActivities.Electricity.InductanceConverterActivity">
+        <activity android:name=".ConverterActivities.Electricity.LinearChargeDensityConverterActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
-        <activity android:name=".ConverterActivities.Electricity.CurrentConverterActivity"/>
+        <activity android:name=".ConverterActivities.Electricity.SurfaceChargeDensityConverterActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".ConverterActivities.Electricity.VolumeChargeDensityActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".ConverterActivities.Electricity.LinearCurrentDensityActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".ConverterActivities.Electricity.ElectricFieldStrengthActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".ConverterActivities.Electricity.ElectricPotentialActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".ConverterActivities.Electricity.SurfaceCurrentDensityActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".ConverterActivities.Electricity.ElectricResistanceConverterActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".ConverterActivities.Electricity.ElectricResistivityConverterActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".ConverterActivities.Electricity.ConductanceConverterActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".ConverterActivities.Electricity.ChargeConverterActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".ConverterActivities.Electricity.ConductivityConverterActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".ConverterActivities.Electricity.ElectrostaticCapacitanceActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".ConverterActivities.Electricity.InductanceConverterActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".ConverterActivities.Electricity.CurrentConverterActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Electricity.ConversionLinearChargeListActivity" />
         <activity android:name=".ConverterActivityList.Electricity.ConversionSurfaceChargeListActivity" />
         <activity android:name=".ConverterActivityList.Electricity.ConversionVolumeChargeDensityListActivity" />
@@ -271,52 +439,105 @@
         <activity android:name=".ConverterActivityList.Electricity.CapacitanceConverterListActivity" />
         <activity android:name=".ConverterActivityList.Electricity.InductanceListActivity" />
         <activity android:name=".ConverterActivityList.Electricity.CurrentConverterListActivity" />
-
-
         //Light
         <activity android:name=".ConverterActivityList.Light.ConversionDigitalImageResolutionListActivity" />
-        <activity android:name=".ConverterActivities.Light.DigitalImageResolutionActivity"/>
+        <activity android:name=".ConverterActivities.Light.DigitalImageResolutionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Light.ConversionFrequencyListActivity" />
-        <activity android:name=".ConverterActivities.Light.FrequencyActivity"/>
+        <activity android:name=".ConverterActivities.Light.FrequencyActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Light.ConversionIlluminationListActivity" />
-        <activity android:name=".ConverterActivities.Light.IlluminationActivity"/>
-
+        <activity android:name=".ConverterActivities.Light.IlluminationActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Light.ConversionLuminanceListActivity" />
-        <activity android:name=".ConverterActivities.Light.LuminanceActivity"/>
+        <activity android:name=".ConverterActivities.Light.LuminanceActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Light.ConversionLuminousIntensityListActivity" />
-        <activity android:name=".ConverterActivities.Light.LuminousIntensityActivity"/>
-
-
+        <activity android:name=".ConverterActivities.Light.LuminousIntensityActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         //other
         <activity android:name=".ConverterActivityList.Other.ConversionSoundListActivity" />
-        <activity android:name=".ConverterActivities.Other.SoundActivity"/>
-
+        <activity android:name=".ConverterActivities.Other.SoundActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Other.ConversionHardnessListActivity" />
-        <activity android:name=".ConverterActivities.Other.HardnessActivity"/>
+        <activity android:name=".ConverterActivities.Other.HardnessActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Other.ConversionPrefixListActivity" />
-        <activity android:name=".ConverterActivities.Other.PrefixActivity"/>
+        <activity android:name=".ConverterActivities.Other.PrefixActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Other.ConversionImageListActivity" />
-        <activity android:name=".ConverterActivities.Other.ImageActivity"/>
-
+        <activity android:name=".ConverterActivities.Other.ImageActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Other.ConversionCookingListActivity" />
-        <activity android:name=".ConverterActivities.Other.CookingActivity"/>
-
+        <activity android:name=".ConverterActivities.Other.CookingActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Other.ConversionTypographyListActivity" />
-        <activity android:name=".ConverterActivities.Other.TypographyConversionActivity"/>
+        <activity android:name=".ConverterActivities.Other.TypographyConversionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Other.MetricWeightListActivity" />
-        <activity android:name=".ConverterActivities.Other.MetricWeightConverterActivity"/>
-
+        <activity android:name=".ConverterActivities.Other.MetricWeightConverterActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Other.MetrologyConverterListActivity" />
-        <activity android:name=".ConverterActivities.Other.MetrologyUnitConverterActivity"/>
+        <activity android:name=".ConverterActivities.Other.MetrologyUnitConverterActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Other.VolumeLumberListActivity" />
-        <activity android:name=".ConverterActivities.Other.VolumeLumberConverterActivity"/>
+        <activity android:name=".ConverterActivities.Other.VolumeLumberConverterActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ConverterActivityList.Other.WorkConverterListActivity" />
         <activity android:name=".ConverterActivities.Other.WorkConverterActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".ConverterActivityList.Other.DataTransferConverterListActivity" />
         <activity android:name=".ConverterActivities.Other.DataTransferConverterActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
-
+        <activity android:name=".SearchActivity"></activity>
     </application>
 
 </manifest>
