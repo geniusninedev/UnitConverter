@@ -289,8 +289,28 @@ public class MainActivity extends AppCompatActivity
         }
         if (id == R.id.action_logout){
 
-            FirebaseAuth.getInstance().signOut();
-            LoginManager.getInstance().logOut();
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+            alertDialogBuilder.setMessage("Are you sure you want to logout");
+            alertDialogBuilder.setPositiveButton("yes",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface arg0, int arg1) {
+
+                            FirebaseAuth.getInstance().signOut();
+                            LoginManager.getInstance().logOut();
+
+                        }
+                    });
+
+            alertDialogBuilder.setNegativeButton("No",new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Log.e("ALERT BOX ", "Permissions not granted");
+                    finish();
+                }
+            });
+
+
         }
 
         return super.onOptionsItemSelected(item);
