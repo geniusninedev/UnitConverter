@@ -124,7 +124,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1.5"
                     android:visibility="invisible"
-                    android:background="@drawable/convert111" />
+                    android:background="@drawable/ic_convert" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -154,38 +154,7 @@
                    />
 
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="3mm"
-                android:visibility="gone"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_gravity="center">
-                <Button
-                    android:id="@+id/buttonUnitCalcualte1"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="2"
-                    android:visibility="invisible"
-                    android:background="@drawable/ic_converter_icon" />
 
-                <Button
-                    android:id="@+id/buttonUnitCalcualte"
-                    android:layout_width="30dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/ic_converter_icon" />
-                <Button
-                    android:id="@+id/buttonUnitCalcualte2"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:visibility="invisible"
-                    android:layout_weight="2"
-                    android:background="@drawable/ic_converter_icon" />
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -213,7 +182,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1.5"
                     android:visibility="invisible"
-                    android:background="@drawable/convert111" />
+                    android:background="@drawable/ic_convert" />
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
