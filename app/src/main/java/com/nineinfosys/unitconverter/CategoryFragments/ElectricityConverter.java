@@ -48,7 +48,6 @@ public class ElectricityConverter  extends Fragment {
 
     private List<ItemObject> getAllItemList(){
 
-
         List<ItemObject> allItems = new ArrayList<ItemObject>();
         allItems.add(new ItemObject("Charge ", R.drawable.charge));
         allItems.add(new ItemObject("Linear Charge Density", R.drawable.linearcharge));
@@ -65,10 +64,6 @@ public class ElectricityConverter  extends Fragment {
         allItems.add(new ItemObject("Electric Conductivity", R.drawable.conducativity));
         allItems.add(new ItemObject("Electrostatic Capacitance", R.drawable.capaciatance));
         allItems.add(new ItemObject("Inductance", R.drawable.inducatance));
-
-
-
-
 
         return allItems;
     }
