@@ -484,7 +484,7 @@ public class MainActivity extends AppCompatActivity
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                             if (shouldShowRequestPermissionRationale(READ_CONTACTS)) {
                                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
-                                alertDialogBuilder.setMessage("You must grant permissions for App to work Forum");
+                                alertDialogBuilder.setMessage("You must grant permissions to work Forum");
                                 alertDialogBuilder.setPositiveButton("yes",
                                         new DialogInterface.OnClickListener() {
                                             @Override
@@ -513,7 +513,7 @@ public class MainActivity extends AppCompatActivity
                             }
                             else{
                                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
-                                alertDialogBuilder.setMessage("You must grant permissions from  App setting to work Forum");
+                                alertDialogBuilder.setMessage("You must grant permissions form App settings to work properly");
                                 alertDialogBuilder.setPositiveButton("Ok",
                                         new DialogInterface.OnClickListener() {
                                             @Override

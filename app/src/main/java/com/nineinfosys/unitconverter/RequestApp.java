@@ -54,11 +54,9 @@ public class RequestApp  extends AppCompatActivity {
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         //customize toolbar
-    /*    android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.app_bar);
-        setSupportActionBar(toolbar);*/
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Get App");
+        getSupportActionBar().setTitle("Request Your Customized App");
 
 
         editTextdevice = (EditText)findViewById(R.id.editTextDevice);
