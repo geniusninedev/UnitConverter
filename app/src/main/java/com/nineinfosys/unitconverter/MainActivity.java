@@ -309,6 +309,9 @@ public class MainActivity extends AppCompatActivity
                     finish();
                 }
             });
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.setCanceledOnTouchOutside(false);
+            alertDialog.show();
 
 
         }
