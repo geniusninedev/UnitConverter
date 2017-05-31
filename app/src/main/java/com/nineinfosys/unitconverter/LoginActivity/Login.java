@@ -82,8 +82,8 @@ public class Login extends AppCompatActivity {
         password = (EditText) findViewById(R.id.edit_text_password);
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#d81b60")));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+     //   getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+     //   getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle("Login");
 
         //Resetting Password of Registered Email ID

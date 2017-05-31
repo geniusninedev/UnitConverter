@@ -347,9 +347,9 @@ public class MainActivity extends AppCompatActivity
         }
         else if (id == R.id.GetApps) {
 
-           /* Intent intent = new Intent(MainActivityDrawer.this, RequestApp.class);
+            Intent intent = new Intent(MainActivity.this, RequestApp.class);
             finish();
-            startActivity(intent);*/
+            startActivity(intent);
 
 
 
