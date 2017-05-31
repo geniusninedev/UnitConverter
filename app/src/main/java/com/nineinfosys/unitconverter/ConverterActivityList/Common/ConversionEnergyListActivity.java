@@ -73,17 +73,10 @@ public class ConversionEnergyListActivity extends AppCompatActivity implements T
     View ChildView;
     DecimalFormat formatter = null;
 
-    public static int REQUEST_PERMISSIONS = 1;
-    boolean boolean_permission;
-    private File imageFile;
-    private Bitmap bitmap,bitmap1;
-    private PrintHelper printhelper;
-
     // public RecyclerView rView;
     RecyclerViewConversionListAdapter rcAdapter;
     List<ItemList> rowListItem, rowListItem1;
-    File imagePath;
-    LinearLayout ll_linear;
+
 
     private String strJoule = null, strKilojoule = null, strKilowatthour = null, strWatthour = null, strCalorienutritional = null, strHorsepowermetrichour = null, strBtuIT = null, strBtuth = null,
             strGigajoule = null, strMegajoule = null, strMillijoule = null, strMicrojoule = null, strNanojoule = null, strAttojoule = null, strMegaelectronvolt = null, strKiloelectronvolt = null, strElectronvolt = null,
@@ -161,28 +154,8 @@ public class ConversionEnergyListActivity extends AppCompatActivity implements T
         rView.setAdapter(rcAdapter);
 
         edittextConversionListvalue.addTextChangedListener(this);
-        if (shouldAskPermissions()) {
-            askPermissions();
-        }
-
 
     }
-
-    protected boolean shouldAskPermissions() {
-        return (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1);
-    }
-
-    @TargetApi(23)
-    protected void askPermissions() {
-        String[] permissions = {
-                "android.permission.READ_EXTERNAL_STORAGE",
-                "android.permission.WRITE_EXTERNAL_STORAGE"
-        };
-        int requestCode = 200;
-        requestPermissions(permissions, requestCode);
-    }
-
-
 
 
     private void NamesAndShortform(String stringSpinnerFrom) {
