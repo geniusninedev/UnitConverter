@@ -82,7 +82,7 @@ public class FrequencyActivity extends AppCompatActivity implements View.OnClick
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#db290d")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Frequency ");
+        getSupportActionBar().setTitle("Frequency Wavelength");
 
         formatsetting();
 

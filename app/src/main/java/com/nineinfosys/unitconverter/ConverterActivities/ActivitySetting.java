@@ -38,7 +38,7 @@ public class ActivitySetting extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
-        getSupportActionBar().setTitle("Setting");
+        getSupportActionBar().setTitle("Settings");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -49,7 +49,6 @@ public class ActivitySetting extends AppCompatActivity {
 
         radioGroupNumberFormat=(RadioGroup)findViewById(R.id.radioGroupNumberFormat);
         seekbarDecimalPlaces = (SeekBar)findViewById(R.id.seekBarDecimalPlaces);
-
 
 
         //fetching value from sharedpreference
@@ -168,7 +167,7 @@ public class ActivitySetting extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        //no inspection SimplifiableIfStatement
         if (id == android.R.id.home) {
             finish();
         }

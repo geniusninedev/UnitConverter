@@ -78,7 +78,7 @@ public class LuminanceActivity extends AppCompatActivity implements View.OnClick
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#6fd684")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Luminance ");
+        getSupportActionBar().setTitle("Luminanace ");
 
         formatsetting();
 
