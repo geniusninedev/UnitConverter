@@ -213,9 +213,6 @@ public class ConductanceConverterActivity extends AppCompatActivity implements V
                         listLinearChargefrom.add("Statmho - stmho");
                         listLinearChargefrom.add("Quantized Hall Conductance - mho");
 
-
-
-
                         //for second running spinner
                         listLinearChargeTo.add("Siemens - S");
                         listLinearChargeTo.add("Megasiemens - MS");
@@ -230,8 +227,6 @@ public class ConductanceConverterActivity extends AppCompatActivity implements V
                         listLinearChargeTo.add("Statmho - stmho");
                         listLinearChargeTo.add("Quantized Hall Conductance - mho");
                         break;
-
-
 
                 }
                 // Creating adapter for spinner
