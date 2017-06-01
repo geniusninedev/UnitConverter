@@ -93,6 +93,7 @@ import com.nineinfosys.unitconverter.ConverterActivities.Other.MetrologyUnitConv
 import com.nineinfosys.unitconverter.ConverterActivities.Other.PrefixActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Other.SoundActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Other.TypographyConversionActivity;
+import com.nineinfosys.unitconverter.ConverterActivities.Other.VolumeLumberConverterActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Other.WorkConverterActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Radiology.RadiationAbsorbedDoseActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Radiology.RadiationActivity;
@@ -4222,7 +4223,7 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
         startActivity(i7);
     }
     private void volumelumber() {
-        Intent i7=new Intent(SearchActivity.this,TypographyConversionActivity.class);
+        Intent i7=new Intent(SearchActivity.this,VolumeLumberConverterActivity.class);
         startActivity(i7);
     }
     private void typography() {
