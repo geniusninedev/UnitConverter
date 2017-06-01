@@ -46,6 +46,7 @@ import com.nineinfosys.unitconverter.ConverterActivities.Electricity.InductanceC
 import com.nineinfosys.unitconverter.ConverterActivities.Electricity.LinearChargeDensityConverterActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Electricity.LinearCurrentDensityActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Electricity.SurfaceChargeDensityConverterActivity;
+import com.nineinfosys.unitconverter.ConverterActivities.Electricity.SurfaceCurrentDensityActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Electricity.VolumeChargeDensityActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Engineering.AccelerationActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Engineering.AccelerationAngularActivity;
@@ -92,11 +93,13 @@ import com.nineinfosys.unitconverter.ConverterActivities.Other.MetrologyUnitConv
 import com.nineinfosys.unitconverter.ConverterActivities.Other.PrefixActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Other.SoundActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Other.TypographyConversionActivity;
+import com.nineinfosys.unitconverter.ConverterActivities.Other.VolumeLumberConverterActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Other.WorkConverterActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Radiology.RadiationAbsorbedDoseActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Radiology.RadiationActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Radiology.RadiationConverterActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Radiology.RadiationExposureActivity;
+import com.nineinfosys.unitconverter.Engines.Electricity.ElectrostaticCapacitanceConverter;
 import com.nineinfosys.unitconverter.Engines.Fluids.MassFluxDensity;
 
 
@@ -4220,7 +4223,7 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
         startActivity(i7);
     }
     private void volumelumber() {
-        Intent i7=new Intent(SearchActivity.this,TypographyConversionActivity.class);
+        Intent i7=new Intent(SearchActivity.this,VolumeLumberConverterActivity.class);
         startActivity(i7);
     }
     private void typography() {
@@ -4264,7 +4267,7 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
         startActivity(i7);
     }
     private void surfacecurrent() {
-        Intent i7=new Intent(SearchActivity.this,SurfaceChargeDensityConverterActivity.class);
+        Intent i7=new Intent(SearchActivity.this,SurfaceCurrentDensityActivity.class);
         startActivity(i7);
     }
     private void surfacecharge() {
@@ -4284,7 +4287,7 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
         startActivity(i7);
     }
     private void electrostatic() {
-        Intent i7=new Intent(SearchActivity.this,ElectricResistivityConverterActivity.class);
+        Intent i7=new Intent(SearchActivity.this,ElectrostaticCapacitanceConverter.class);
         startActivity(i7);
     }
     private void electricResistivity() {
@@ -4446,10 +4449,12 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
     }
 
     private void thermalexpansion() {
+        Intent i7=new Intent(SearchActivity.this, ThermalExpansionActivity.class);
+        startActivity(i7);
     }
 
     private void thermalconducitivity() {
-        Intent i7=new Intent(SearchActivity.this, ThermalExpansionActivity.class);
+        Intent i7=new Intent(SearchActivity.this, ThermalConductivityActivity.class);
         startActivity(i7);
     }
 

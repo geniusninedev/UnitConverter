@@ -210,9 +210,6 @@ public class ElectricResistanceConverterActivity extends AppCompatActivity imple
                         listLinearChargefrom.add("Quantized Hall resistance - Ω");
 
 
-
-
-
                         //for second running spinner
                         listLinearChargeTo.add("Ohm - Ω");
                         listLinearChargeTo.add("Megohm - megohm");
@@ -224,12 +221,6 @@ public class ElectricResistanceConverterActivity extends AppCompatActivity imple
                         listLinearChargeTo.add("Statohm - stΩ");
                         listLinearChargeTo.add("ESU of resistance - ESU");
                         listLinearChargeTo.add("Quantized Hall resistance - Ω");
-
-
-
-
-
-
 
                         break;
                 }
@@ -393,7 +384,6 @@ public class ElectricResistanceConverterActivity extends AppCompatActivity imple
             doubleEdittextvalue = 0;
 
         }
-
 
     }
 
