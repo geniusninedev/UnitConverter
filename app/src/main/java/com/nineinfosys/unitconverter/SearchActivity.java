@@ -42,6 +42,7 @@ import com.nineinfosys.unitconverter.ConverterActivities.Electricity.ElectricFie
 import com.nineinfosys.unitconverter.ConverterActivities.Electricity.ElectricPotentialActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Electricity.ElectricResistanceConverterActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Electricity.ElectricResistivityConverterActivity;
+import com.nineinfosys.unitconverter.ConverterActivities.Electricity.ElectrostaticCapacitanceActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Electricity.InductanceConverterActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Electricity.LinearChargeDensityConverterActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Electricity.LinearCurrentDensityActivity;
@@ -61,6 +62,7 @@ import com.nineinfosys.unitconverter.ConverterActivities.Fluids.ConcentrationSol
 import com.nineinfosys.unitconverter.ConverterActivities.Fluids.FlowActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Fluids.FlowMassActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Fluids.FlowMolarActivity;
+import com.nineinfosys.unitconverter.ConverterActivities.Fluids.MassFluxDensityActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Fluids.PermeabillityActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Fluids.SurfaceTensionActivity;
 import com.nineinfosys.unitconverter.ConverterActivities.Fluids.ViscosityDynamicActivity;
@@ -4287,7 +4289,7 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
         startActivity(i7);
     }
     private void electrostatic() {
-        Intent i7=new Intent(SearchActivity.this,ElectrostaticCapacitanceConverter.class);
+        Intent i7=new Intent(SearchActivity.this,ElectrostaticCapacitanceActivity.class);
         startActivity(i7);
     }
     private void electricResistivity() {
@@ -4389,7 +4391,7 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
     }
 
     private void massflux() {
-        Intent i7=new Intent(SearchActivity.this,MassFluxDensity.class);
+        Intent i7=new Intent(SearchActivity.this,MassFluxDensityActivity.class);
         startActivity(i7);
     }
 
